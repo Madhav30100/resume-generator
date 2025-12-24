@@ -1,28 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+
+    <!-- EMBEDDED CSS (BEST FOR STREAMLIT) -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-        }
-
-        /* TEMPLATE 1 – CLASSIC */
-        .classic h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-        }
-
-        /* TEMPLATE 2 – MODERN */
-        .modern h1 {
-            color: white;
-            background-color: #34495e;
-            padding: 10px;
-        }
-
-        h2 {
-            margin-top: 20px;
-        }
+        {{ css }}
     </style>
 </head>
 
@@ -32,7 +16,11 @@
     <p>{{ email }} | {{ phone }}</p>
 
     <h2>Skills</h2>
-    <p>{{ skills }}</p>
+    <ul>
+        {% for skill in skills.split(',') %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
 
     <h2>Education</h2>
     <p>{{ education }}</p>
